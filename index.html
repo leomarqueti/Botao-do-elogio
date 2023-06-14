@@ -34,7 +34,6 @@
 
         #botao:hover {
             background-color: #f57878;
-            transform: scale(1.05);
         }
 
         #mensagem {
@@ -43,17 +42,34 @@
             margin-top: 20px;
             color: #e08686;
         }
+
+        .botao-voltar {
+            background-color: #f57878;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 28px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .botao-voltar:hover {
+            background-color: #f39c9c;
+            transform: scale(1.1);
+        }
     </style>
 </head>
 <body>
     <div id="container">
         <button id="botao">Clica aqui, gatona</button>
-        <div id="mensagem">Saiba que você é a mulher mais linda do mundo!</div>
+        <div id="mensagem"></div>
     </div>
 
     <script>
         var frases = [
-            // 200 frases iniciais
             "Você ilumina minha vida todos os dias.",
             "Sua beleza é deslumbrante, por dentro e por fora.",
             "Não consigo tirar os olhos de você quando está por perto.",
@@ -123,7 +139,7 @@
             "Seu amor transformou minha vida para melhor.",
             "Cada segundo ao seu lado é um presente valioso.",
             "Sua determinação e coragem são inspiradoras.",
-            "Seu abraço é meu lugar seguro no mundo.",
+            "Seu abraço é o meu porto seguro.",
             "Sua bondade e compaixão são inigualáveis.",
             "Não há palavras suficientes para expressar o quanto te amo.",
             "Seu sorriso ilumina meu mundo inteiro.",
@@ -151,7 +167,7 @@
             "Cada momento ao seu lado é um sonho realizado.",
             "Seu amor é como um raio de sol em minha vida.",
             "Você é a pessoa mais incrível que já conheci.",
-            "Seu coração é tão puro e gentil.",
+            "Seu coração é tão bondoso e generoso.",
             "Cada segundo ao seu lado é um tesouro inestimável.",
             "Sua determinação e coragem são inspiradoras.",
             "Seu abraço é o lugar onde encontro paz e tranquilidade.",
@@ -182,108 +198,20 @@
             "Seu toque suave acalma minhas preocupações.",
             "Sua presença preenche minha vida de amor e felicidade.",
             "Cada palavra que você diz é música para meus ouvidos.",
-            // 200 frases adicionais
-            "Você ilumina minha vida todos os dias.",
-            "Sua beleza é deslumbrante, por dentro e por fora.",
-            "Não consigo tirar os olhos de você quando está por perto.",
-            "Seu sorriso é como um raio de sol em um dia nublado.",
-            "Cada momento ao seu lado é mágico e especial.",
+            "Seu jeito único de ver o mundo me inspira.",
+            "Sua alegria contagiante ilumina meu dia.",
+            "Você é o presente mais precioso que já recebi.",
+            "Seu abraço é a proteção que eu preciso.",
+            "Sua generosidade e compaixão são admiráveis.",
+            "Não existem palavras para descrever o quanto te amo.",
+            "Seu sorriso é o meu raio de sol em dias cinzentos.",
+            "Cada dia ao seu lado é um presente que valorizo.",
+            "Sua inteligência e sabedoria me fascinam.",
             "Você é a pessoa mais incrível que já conheci.",
-            "Seu amor me completa de uma maneira única.",
-            "Tenho muita sorte em ter você ao meu lado.",
-            "Com você, tudo parece possível.",
-            "Seu coração é tão bondoso e generoso.",
-            "Você me inspira a ser uma pessoa melhor todos os dias.",
-            "Sua inteligência e perspicácia são admiráveis.",
-            "Suas risadas contagiantes alegram meu dia.",
-            "Seu abraço é meu lugar favorito no mundo.",
-            "Você é a definição de elegância e graça.",
-            "Não há ninguém no mundo que se compare a você.",
-            "Seu jeito carinhoso aquece meu coração.",
-            "Ao seu lado, tudo parece mais fácil e bonito.",
-            "Sua determinação e força de vontade são inspiradoras.",
-            "Seu amor me dá coragem para enfrentar qualquer desafio.",
-            "Cada detalhe em você é perfeito aos meus olhos.",
-            "Você é a personificação da beleza e da doçura.",
-            "Sua voz é como música para meus ouvidos.",
-            "O mundo fica mais bonito quando você está nele.",
-            "Sua presença torna qualquer lugar mais especial.",
-            "Seu amor me faz acreditar em milagres.",
-            "Você é meu porto seguro, minha âncora na tempestade.",
-            "Não existem palavras para descrever o quanto te admiro.",
-            "Seu sorriso derrete meu coração toda vez que o vejo.",
-            "Cada dia ao seu lado é uma bênção que agradeço.",
-            "Você é minha inspiração para alcançar grandes coisas.",
-            "Seu olhar transmite amor e ternura.",
-            "Sua sabedoria e intuição são surpreendentes.",
-            "Você é a pessoa mais linda que já conheci, por dentro e por fora.",
-            "Seu toque é suave e reconfortante.",
-            "Sua personalidade brilha mais do que qualquer estrela.",
-            "Você é a razão do meu sorriso todos os dias.",
-            "Não há nada que eu não faria por você.",
-            "Sua dedicação e comprometimento são admiráveis.",
-            "Sua voz acalma minha alma e me faz sentir em paz.",
-            "Você é a pessoa mais especial em minha vida.",
-            "Sua presença torna tudo mais especial e significativo.",
-            "Seu amor é o melhor presente que já recebi.",
-            "Cada momento ao seu lado é uma aventura inesquecível.",
-            "Não consigo imaginar minha vida sem você.",
-            "Sua alegria contagiante ilumina o mundo ao seu redor.",
-            "Seu jeito único de ser me encanta todos os dias.",
-            "Sua generosidade e compaixão tocam meu coração.",
-            "Você é a definição de perfeição aos meus olhos.",
-            "Seu amor me fortalece e me faz sentir invencível.",
-            "Não há ninguém que eu queira ao meu lado além de você.",
-            "Sua presença enche minha vida de felicidade.",
-            "Você é o meu sonho tornado realidade.",
-            "Sua coragem e determinação são admiráveis.",
-            "Seu beijo é o melhor remédio para qualquer tristeza.",
-            "Cada momento ao seu lado é uma lembrança preciosa.",
-            "Sua voz suave acalma minha alma inquieta.",
-            "Sua inteligência brilhante sempre me impressiona.",
-            "Você é o motivo do meu sorriso todos os dias.",
-            "Sua força e resiliência são inspiradoras.",
-            "Seu toque suave acalma minhas preocupações.",
-            "Sua sinceridade e autenticidade são cativantes.",
-            "Não há distância que possa separar nosso amor.",
-            "Seu jeito doce e carinhoso aquece meu coração.",
-            "Sua presença é como um raio de sol em um dia chuvoso.",
-            "Você é a pessoa mais incrível que já conheci.",
-            "Seu amor transformou minha vida para melhor.",
-            "Cada segundo ao seu lado é um presente valioso.",
-            "Sua determinação e coragem são inspiradoras.",
-            "Seu abraço é meu lugar seguro no mundo.",
-            "Sua bondade e compaixão são inigualáveis.",
-            "Não há palavras suficientes para expressar o quanto te amo.",
-            "Seu sorriso ilumina meu mundo inteiro.",
-            "Sua inteligência é impressionante e inspiradora.",
-            "Você é a pessoa mais bonita, por dentro e por fora.",
-            "Sua presença traz paz e tranquilidade à minha vida.",
-            "Seu amor é o que me dá forças para seguir em frente.",
-            "Cada momento compartilhado com você é uma dádiva.",
-            "Sua dedicação e comprometimento são admiráveis.",
-            "Seu sorriso contagia a todos ao seu redor.",
-            "Você é o meu refúgio em tempos de tempestade.",
-            "Sua presença é como um bálsamo para minha alma.",
-            "Seu amor é o presente mais precioso que já recebi.",
-            "Cada abraço seu é um abraço de felicidade.",
-            "Sua generosidade e compaixão são exemplos a serem seguidos.",
-            "Não há nada que eu não faria por você, meu amor.",
-            "Seu jeito único de ser me encanta a cada dia.",
-            "Sua sabedoria e perspicácia me impressionam sempre.",
-            "Você é a pessoa mais linda e especial que conheço.",
-            "Seu sorriso é a coisa mais bonita que já vi.",
-            "Sua inteligência e criatividade são admiráveis.",
-            "Você é minha inspiração para alcançar grandes feitos.",
-            "Seu olhar transmite tanto amor e ternura.",
-            "Sua presença preenche minha vida de felicidade.",
-            "Cada momento ao seu lado é um sonho realizado.",
-            "Seu amor é como um raio de sol em minha vida.",
-            "Você é a pessoa mais incrível que já conheci.",
-            "Seu coração é tão puro e gentil.",
-            "Cada segundo ao seu lado é um tesouro inestimável.",
-            "Sua determinação e coragem são inspiradoras.",
-            "Seu abraço é o lugar onde encontro paz e tranquilidade.",
+            "Seu amor me transformou em uma pessoa melhor.",
+            "Cada momento ao seu lado é um tesouro inestimável.",
+            "Sua coragem e determinação me inspiram a ser forte.",
+            "Seu abraço é o lugar onde encontro paz e segurança.",
             "Sua presença ilumina minha vida de uma maneira única.",
             "Você é minha inspiração para alcançar grandes sonhos.",
             "Seu olhar transmite tanto amor e ternura.",
@@ -313,16 +241,21 @@
             "Cada palavra que você diz é música para meus ouvidos."
         ];
 
-        var botao = document.getElementById("botao");
-        var mensagem = document.getElementById("mensagem");
+        var botao = document.getElementById('botao');
+        var mensagem = document.getElementById('mensagem');
 
-        function exibirMensagem() {
-            var indice = Math.floor(Math.random() * frases.length);
-            mensagem.textContent = frases[indice];
-            mensagem.style.display = "block";
+        botao.addEventListener('click', function() {
+            botao.style.display = 'none';
+            mensagem.style.display = 'block';
+            mensagem.textContent = frases[Math.floor(Math.random() * frases.length)];
+            mensagem.innerHTML += "<button class='botao-voltar' onclick='voltar()'><-</button>";
+        });
+
+        function voltar() {
+            mensagem.style.display = 'none';
+            botao.style.display = 'block';
+            mensagem.innerHTML = "";
         }
-
-        botao.addEventListener("click", exibirMensagem);
     </script>
 </body>
 </html>
