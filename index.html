@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Site</title>
+    <style>
+        body {
+            background-color: #f9e3e3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        #container {
+            text-align: center;
+        }
+
+        #botao {
+            padding: 15px 30px;
+            font-size: 24px;
+            background-color: #f39c9c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #botao:hover {
+            background-color: #f57878;
+        }
+
+        #mensagem {
+            display: none;
+            font-size: 28px;
+            margin-top: 20px;
+            color: #e08686;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <button id="botao">Clica aqui, gatona</button>
+        <div id="mensagem">Saiba que você é a mulher mais linda do mundo!</div>
+    </div>
+
+    <script>
+        var botao = document.getElementById('botao');
+        var mensagem = document.getElementById('mensagem');
+
+        botao.addEventListener('click', function() {
+            botao.style.display = 'none';
+            mensagem.style.display = 'block';
+        });
+    </script>
+</body>
+</html>
