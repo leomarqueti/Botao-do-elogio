@@ -18,7 +18,7 @@
         }
         
         /* Aqui, estilizamos a data e a hora */
-        #data, #hora {
+        #data, #hora,#weather {
             font-size: 24px;
             color: #f39c9c;
             text-align: center;
@@ -95,6 +95,7 @@
     <div id="informacao">
         <div id="data"></div>
         <div id="hora"></div>
+        <div id="weather"></div>
     </div>
     
 
@@ -102,6 +103,9 @@
         <button id="botao">Clica aqui, gatona</button>
         <div id="mensagem"></div>
     </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 
     <script>
         function atualizarDataHora() {
@@ -306,6 +310,18 @@
             });
 
             mensagem.appendChild(botaoVoltar);
+        });
+
+        var api_key = '4c6e26083c2ee89556095d39f9a93dde'; 
+        var city_id = 3469854; 
+
+        $.get(`https://api.openweathermap.org/data/2.5/weather?id=${city_id}&appid=${api_key}&units=metric`, function(data) {
+            var temp = data.main.temp;
+            $('#weather').html(`Temperatura atual em Bastos: ${temp}°C<br>`);
+
+            if (temp < 20) {
+                $('#weather').append('Tão frio hoje, queria estar te esquentando');
+            }
         });
     </script>
 </body>
