@@ -104,9 +104,6 @@
         <div id="mensagem"></div>
     </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-
     <script>
         function atualizarDataHora() {
             var agora = new Date();
@@ -315,14 +312,19 @@
         var api_key = '4c6e26083c2ee89556095d39f9a93dde'; 
         var city_id = 3469854; 
 
-        $.get(`https://api.openweathermap.org/data/2.5/weather?id=${city_id}&appid=${api_key}&units=metric`, function(data) {
-            var temp = data.main.temp;
-            $('#weather').html(`Temperatura atual em Bastos: ${temp}°C<br>`);
+        // Usando a API Fetch e async/await
+        async function fetchWeather() {
+            const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?id=${city_id}&appid=${api_key}&units=metric`);
+            const data = await response.json();
+            const temp = data.main.temp;
+            document.getElementById('weather').textContent = `Temperatura atual em Bastos: ${temp}°C`;
 
             if (temp < 20) {
-                $('#weather').append('Tão frio hoje, queria estar te esquentando');
+                document.getElementById('weather').textContent += '\nTão frio hoje, queria estar te esquentando';
             }
-        });
+        }
+
+        fetchWeather();
     </script>
 </body>
 </html>
