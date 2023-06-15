@@ -18,6 +18,7 @@
 
         #container {
             text-align: center;
+            position: relative;
         }
 
         #botao {
@@ -28,8 +29,7 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            transition: background-color 0.3s, transform 0.3s;
-            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s;
         }
 
         #botao:hover {
@@ -41,24 +41,38 @@
             font-size: 28px;
             margin-top: 20px;
             color: #e08686;
+            animation: aparecer 0.5s;
+            position: relative;
         }
 
         .botao-voltar {
-            background-color: #f57878;
+            padding: 10px;
+            font-size: 18px;
+            background-color: #f39c9c;
             color: white;
             border: none;
             border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            font-size: 28px;
             cursor: pointer;
-            transition: background-color 0.3s, transform 0.3s;
-            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s;
+            position: absolute;
+            bottom: -40px;
+            left: 50%;
+            transform: translateX(-50%);
         }
 
         .botao-voltar:hover {
-            background-color: #f39c9c;
-            transform: scale(1.1);
+            background-color: #f57878;
+        }
+
+        @keyframes aparecer {
+            0% {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
     </style>
 </head>
@@ -70,7 +84,7 @@
 
     <script>
         var frases = [
-            "Você ilumina minha vida todos os dias.",
+        "Você ilumina minha vida todos os dias.",
             "Sua beleza é deslumbrante, por dentro e por fora.",
             "Não consigo tirar os olhos de você quando está por perto.",
             "Seu sorriso é como um raio de sol em um dia nublado.",
@@ -248,14 +262,20 @@
             botao.style.display = 'none';
             mensagem.style.display = 'block';
             mensagem.textContent = frases[Math.floor(Math.random() * frases.length)];
-            mensagem.innerHTML += "<button class='botao-voltar' onclick='voltar()'><-</button>";
-        });
 
-        function voltar() {
-            mensagem.style.display = 'none';
-            botao.style.display = 'block';
-            mensagem.innerHTML = "";
-        }
+            var botaoVoltar = document.createElement('button');
+            botaoVoltar.classList.add('botao-voltar');
+            botaoVoltar.innerHTML = '&larr;';
+            botaoVoltar.addEventListener('click', function() {
+                botao.style.display = 'block';
+                mensagem.style.display = 'none';
+                mensagem.textContent = "";
+                this.remove();
+            });
+
+            mensagem.appendChild(botaoVoltar);
+        });
     </script>
 </body>
 </html>
+
